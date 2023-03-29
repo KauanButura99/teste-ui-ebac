@@ -15,7 +15,7 @@ describe('Fucionalidade página de produtos ', () => {
       .contains('Atomic Endurance Running Tee (Crew-Neck)')
       .click()
   });
-  it.only('Deve colocar o item no carrinho', () => {
+  it('Deve colocar o item no carrinho', () => {
     let quantidade = 3
 
     cy.get('[class="product-block grid"]')
@@ -28,5 +28,13 @@ describe('Fucionalidade página de produtos ', () => {
     cy.get('.dropdown-toggle > .mini-cart-items').should('contain', quantidade)
     cy.get('.woocommerce-message').should('contain', quantidade + ' × “Abominable Hoodie” foram adicionados no seu carrinho.')
 
+  });
+
+  it('Deve adicionar porduto com o comando customizado ', () => {
+    cy.addProduto('Aero Daily Fitness Tee', 'M', 'Black', 3)
+  });
+
+  it.only('Deve adicionar porduto com o comando customizado ', () => {
+    cy.addProduto('Ariel Roll Sleeve Sweatshirt', 'M', 'Purple', 3)
   });
 });

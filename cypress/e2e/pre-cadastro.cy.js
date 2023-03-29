@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import { faker } from '@faker-js/faker';
+import { faker } from '@faker-js/faker'
 
 describe('Funcionalidade de pré-cadastro', () => {
 
@@ -25,5 +25,13 @@ describe('Funcionalidade de pré-cadastro', () => {
 
     cy.get('.woocommerce-message').should('contain', "Detalhes da conta modificados com sucesso.")
   });
+
+  it.only('Deve completar o pre-cadastro com sucesso usando comandos customizados ', () => {
+    let emailFaker2 = faker.internet.email()
+    cy.preCadastro(emailFaker2, '12345', 'Lil', 'Top')
+
+    cy.get('.woocommerce-message').should('contain', "Detalhes da conta modificados com sucesso.")
+  });
+
 
 });

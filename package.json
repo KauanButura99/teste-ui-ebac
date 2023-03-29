@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/KauanButura99/teste-ui-ebac#readme",
   "dependencies": {
+    "@faker-js/faker": "^7.6.0",
     "cypress": "^12.8.1"
   }
 }

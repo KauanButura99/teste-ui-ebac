@@ -21,7 +21,7 @@ describe('Funcionalidade de login', () => {
     cy.get('.woocommerce-form > .button').click()
   });
 
-  it.only('Deve fazer login com sucesso - Usando arquivos de dados ', () => {
+  it('Deve fazer login com sucesso - Usando arquivos de dados ', () => {
     cy.fixture('perfil-lock.json').then(dados => {
       cy.get('#username').type(dados.usuario)
       cy.get('#password').type(dados.senha, { log: false })
