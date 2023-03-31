@@ -1,4 +1,5 @@
 /// <reference types='cypress' />
+import enderecoPage from "../support/page-objects/endereco.page"
 
 describe('Funcionalidade endereços - Faturamento e Entrega ', () => {
 
@@ -11,7 +12,10 @@ describe('Funcionalidade endereços - Faturamento e Entrega ', () => {
   });
 
 
-  it('Deve fazer o cadastro de faturamneto com sucesso ', () => {
+  it.only('Deve fazer o cadastro de faturamneto com sucesso ', () => {
+    enderecoPage.editarEndereçoFaturamento('Kauan', 'Butura', 'Ebac', 'Italia', 'Casa Verde', 'Casa', '80142',
+      'Napoli', 'Napoli', '1123456789')
 
+    cy.get('.woocommerce-message').should('contain', 'Endereço alterado com sucesso')
   });
 });
